@@ -9,19 +9,17 @@ function createElementByTemplate(template, data) {
       argValues.push(...Object.keys(data).map(arg => data[arg]));
    }
 
-   const element = template.content ? template.content.cloneNode(true) : template.cloneNode(true);
+   const element = template.content ? template.content.cloneNode(true) : template;
 
    let field;
 
    field = element.querySelector('[data-if]');
    while (field) {
       const value = (new Function(...args, `return ${field.getAttribute('data-if')};`))(...argValues);
-      if (value) {
-         while (field.firstChild) {
-            field.parentNode.insertBefore(field.firstChild, field);
-         }
+      field.removeAttribute('data-if');
+      if (!value) {
+         field.parentNode.removeChild(field);
       }
-      field.parentNode.removeChild(field);
       field = element.querySelector('[data-if]');
    }
 
@@ -30,9 +28,8 @@ function createElementByTemplate(template, data) {
       const value = (new Function(...args, `return ${field.getAttribute('data-loop')};`))(...argValues);
       field.removeAttribute('data-loop');
       value.forEach(item => {
-         field.parentNode.insertBefore(createElementByTemplate(field, item), field);
+         field.parentNode.insertBefore(createElementByTemplate(field.cloneNode(true), item), field);
       });
-
       field.parentNode.removeChild(field);
       field = element.querySelector('[data-loop]');
    }
