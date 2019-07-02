@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>JnList</title>
+   <style>
+      body {
+         font-family: Arial, Helvetica, sans-serif;
+         margin: 0 auto;
+         max-width: 600px;
+         padding: 1rem;
+      }
+   </style>
+</head>
+
+<body>
+   <h1>JnList</h1>
+
+   <template id="test">
+      <p><span data-field="name"></span> / <span data-field="address"></span> - <span data-loop="choices"><span data-field="value"></span></span></p>
+   </template>
+
+   <jn-list templateid="test" url="data:application/json;base64,W3sibmFtZSI6IkphbWVzIiwiYWRkcmVzcyI6IlRvcm9udG8sIE9udGFyaW8iLCJjaG9pY2VzIjpbImEiLCJiIl19XQ=="></jn-list>
+
+   <script src="createelementbytemplate.js"></script>
+   <script src="jn-list.js"></script>
+</body>
+
+</html>

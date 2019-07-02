@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <jn-nested-parent name="0">
+        <p>TEST</p>
+        <jn-nested name="1" type="string"></jn-nested>
+        <jn-nested name="2" type="string"></jn-nested>
+        <jn-nested name="3" type="string"></jn-nested>
+    </jn-nested-parent>
+
+    <script src="jn-nested-parent.js"></script>
+    <script src="jn-nested.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            console.log('→ DOM CONTENT LOADED');
+            // document.querySelector('[name="0"]').update();
+        })
+    </script>
+</body>
+
+</html>
