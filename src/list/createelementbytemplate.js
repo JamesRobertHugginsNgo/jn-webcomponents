@@ -1,5 +1,5 @@
 function createElementByTemplate(template, data) {
-   const args = ['value'];
+   const args = ['data'];
    if (typeof data === 'object' && data !== null) {
       args.push(...Object.keys(data));
    }

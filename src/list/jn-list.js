@@ -93,8 +93,6 @@ class JnList extends HTMLElement {
    }
 
    update() {
-      console.log('UPDATE');
-
       while (this.wrapper.firstChild) {
          this.wrapper.removeChild(this.wrapper.firstChild);
       }
